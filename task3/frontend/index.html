@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      color: gold;
+    }
+
+    header {
+      margin-top: 50px;
+      font-weight: bold;
+    }
+
+    .bell-container {
+      position: relative;
+      margin: auto;
+      display: inline-block; /* Adjusted */
+    }
+
+    .bell-button {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      position: absolute; /* Adjusted */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: gold; /* Set bell color to gold */
+    }
+
+    .fa-bell {
+      font-size: 3em;
+    }
+
+    .circle {
+      position: absolute;
+      top: calc(50% - 120px); /* Adjusted */
+      left: calc(50% - 120px); /* Adjusted */
+      width: 240px; /* Adjusted width */
+      height: 240px; /* Adjusted height */
+      border-radius: 50%;
+      border: 3px solid gold;
+      animation: pulse 2s infinite;
+      box-sizing: border-box;
+    }
+
+    .circle2 {
+      position: absolute;
+      top: calc(50% - 150px); /* Adjusted */
+      left: calc(50% - 150px); /* Adjusted */
+      width: 300px; /* Adjusted width */
+      height: 300px; /* Adjusted height */
+      border-radius: 50%;
+      border: 2px solid gold;
+      opacity: 0.8;
+      box-sizing: border-box;
+    }
+
+    .circle3 {
+      position: absolute;
+      top: calc(50% - 180px); /* Adjusted */
+      left: calc(50% - 180px); /* Adjusted */
+      width: 360px; /* Adjusted width */
+      height: 360px; /* Adjusted height */
+      border-radius: 50%;
+      border: 1px solid gold;
+      opacity: 0.6;
+      box-sizing: border-box;
+    }
+
+    .notification-button {
+      margin-bottom: 50px;
+      background-color: gold;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .fa-bell {
+        font-size: 2em;
+      }
+
+      .circle {
+        width: 180px; /* Adjusted width */
+        height: 180px; /* Adjusted height */
+        top: calc(50% - 90px); /* Adjusted */
+        left: calc(50% - 90px); /* Adjusted */
+      }
+
+      .circle2 {
+        width: 230px; /* Adjusted width */
+        height: 230px; /* Adjusted height */
+        top: calc(50% - 115px); /* Adjusted */
+        left: calc(50% - 115px); /* Adjusted */
+      }
+
+      .circle3 {
+        width: 280px; /* Adjusted width */
+        height: 280px; /* Adjusted height */
+        top: calc(50% - 140px); /* Adjusted */
+        left: calc(50% - 140px); /* Adjusted */
+      }
+    }
+
+    /* Popup Notification Styles */
+    .popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: gold;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Hello Developers</h1>
+    </header>
+    <main>
+      <div class="bell-container">
+        <span class="fa-stack fa-3x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-bell fa-stack-1x fa-inverse bell-button"></i>
+        </span>
+        <div class="circle"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+      </div>
+    </main>
+    <footer>
+      <button class="notification-button">Send Notification</button>
+    </footer>
+  </div>
+
+  <!-- Popup Notification -->
+  <div id="popup" class="popup">
+    Notification Sent!
+  </div>
+
+  <script>
+    // Function to show popup notification
+    function showNotification() {
+      var popup = document.getElementById("popup");
+      popup.style.display = "block";
+      setTimeout(function() {
+        popup.style.display = "none";
+      }, 3000); // Hide the popup after 3 seconds
+    }
+
+    // Add event listener to the Send Notification button
+    document.querySelector(".notification-button").addEventListener("click", function() {
+      showNotification();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
